@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %}{% block title %}{{ post.title }} -
+Blog{% endblock %} {% block content %}
+<div class="container">
+  <h1>{{ post.title }}</h1>
+  <p>
+    <strong>By {{ post.author }}</strong> | {{ post.published_date|date:"F j, Y"
+    }}
+  </p>
+  {% if post.featured_image %}
+  <img
+    src="{{ post.featured_image.url }}"
+    alt="{{ post.title }}"
+    class="featured-image"
+  />
+  {% endif %}
+  <div class="blog-content">{{ post.content|safe }}</div>
+</div>
+{% endblock %}

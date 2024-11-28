@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="services-section" style="background-image: url('{% static "images/lawfirm-bg.jpeg" %}'); background-size: cover; background-position: center; min-height: 100vh; color: #fff;">
+    <div class="container">
+        <h1 class="section-title">Our Services</h1>
+        <div class="services-list">
+            {% for service in services %}
+            <div class="service-card">
+                {% if service.icon %}
+                <img src="{{ service.icon.url }}" alt="{{ service.title }}" class="service-icon">
+                {% endif %}
+                <h2>{{ service.title }}</h2>
+                <p>{{ service.description }}</p>
+            </div>
+            {% empty %}
+            <p>No services available at the moment. Please check back later.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

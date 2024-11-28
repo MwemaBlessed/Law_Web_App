@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %} Contact Us {% endblock %}
+<!-- i guess i'll just have to leave this comment here 'Mwema' -->
+{% block content %}
+
+<h1>Contact Us</h1>
+<p>Have questions or need help? Reach out to us using the form below:</p>
+
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn">Submit</button>
+</form>
+
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li class="{{ message.tags }}">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<div class="contact-info">
+  <h2>Studio House, 4th Floor</h2>
+  <p>Off Argwings Kodhek Road</p>
+  <p>Email: rutokamketadvocates@gmail.com</p>
+  <p>Phone: 0710402920, 0724073337</p>
+  <p>P.O. BOX 34835-00100</p>
+  <p>Nairobi, Kenya</p>
+</div>
+{% endblock %}
